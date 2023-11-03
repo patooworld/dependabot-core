@@ -38,6 +38,9 @@ module Dependabot
           @created_pull_requests = []
         end
 
+        # rubocop:disable Metrics/AbcSize
+        # rubocop:disable Metrics/MethodLength
+        # rubocop:disable Metrics/PerceivedComplexity
         def perform
           Dependabot.logger.info("Starting security update job for #{job.source.repo}")
 
@@ -86,6 +89,9 @@ module Dependabot
             dependency_change
           end
         end
+        # rubocop:enable Metrics/AbcSize
+        # rubocop:enable Metrics/MethodLength
+        # rubocop:enable Metrics/PerceivedComplexity
 
         private
 
