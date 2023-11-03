@@ -22,10 +22,10 @@ module Dependabot
       end
 
       # Returns an array of DependencyFile objects for the current state
-      def current_dependency_files
-        @dependency_file_batch.map do |_path, data|
-          data[:file]
-        end
+      def current_dependency_files(directory)
+        @dependency_file_batch.map do |path, data|
+          data[:file] if path.start_with?(directory)
+        end.compact
       end
 
       # Returns an array of DependencyFile objects for dependency files that have changed at least once merged with
