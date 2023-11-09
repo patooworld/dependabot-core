@@ -22,7 +22,7 @@ module Dependabot
 
           return false unless job.security_updates_only?
 
-          true if job.dependencies.count > 1
+          true if job.dependencies.count > 1 || (job.source.directories && job.source.directories.count > 1)
         end
 
         def self.tag_name
