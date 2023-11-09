@@ -1,6 +1,8 @@
 # typed: true
 # frozen_string_literal: true
 
+require "pathname"
+
 # This class is responsible for aggregating individual DependencyChange objects
 # by tracking changes to individual files and the overall dependency list.
 module Dependabot
@@ -24,7 +26,7 @@ module Dependabot
       # Returns an array of DependencyFile objects for the current state
       def current_dependency_files(directory)
         @dependency_file_batch.filter_map do |path, data|
-          data[:file] if path.start_with?(directory)
+          data[:file] if Pathname.new(path).dirname.to_s == directory
         end
       end
 
