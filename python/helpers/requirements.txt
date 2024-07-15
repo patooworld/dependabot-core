@@ -8,3 +8,4 @@ poetry==1.6.1
 
 # Some dependencies will only install if Cython is present
 Cython==3.0.4
+setuptools>=70.0.0 # not directly required, pinned by Snyk to avoid a vulnerability
