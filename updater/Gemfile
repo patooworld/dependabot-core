@@ -54,5 +54,5 @@ group :test do
 end
 
 group :development do
-  gem "licensed", "~> 4.4", require: false
+  gem "licensed", "~> 4.5", ">= 4.5.0", require: false
 end
